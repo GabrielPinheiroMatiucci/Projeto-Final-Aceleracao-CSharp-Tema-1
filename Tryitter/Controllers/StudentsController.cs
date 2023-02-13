@@ -24,8 +24,19 @@ public class StudentsController : ControllerBase
   [HttpPost]
   public IActionResult CreateStudent([FromBody] Student student)
   {
-    _repository.CreateStudent(student);
+    int id = _repository.CreateStudent(student);
 
-    return NoContent();
+    return Created($"/students/{id}", student);
+  }
+
+  [HttpPut("{id}")]
+  public IActionResult UpdateStudent(
+    [FromRoute] int id, [FromBody] Student student
+  )
+  {
+    if (_repository.UpdateStudent(id, student))
+      return NoContent();
+
+    return BadRequest();
   }
 }
