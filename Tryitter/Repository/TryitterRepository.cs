@@ -15,4 +15,10 @@ public class TryitterRepository
   {
     return _context.Students.ToList();
   }
+
+  public void CreateStudent(Student student)
+  {
+    _context.Students.Add(student);
+    _context.SaveChanges();
+  }
 }
