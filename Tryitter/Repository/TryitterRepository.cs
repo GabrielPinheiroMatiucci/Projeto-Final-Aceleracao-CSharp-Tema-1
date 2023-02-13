@@ -15,4 +15,9 @@ public class TryitterRepository
   {
     return _context.Students.ToList();
   }
+
+  public List<Post>? GetPosts()
+  {
+    return _context.Posts.ToList();
+  }
 }
