@@ -50,4 +50,15 @@ public class StudentsController : ControllerBase
 
     return BadRequest();
   }
+
+  [HttpDelete("{id}")]
+  public IActionResult DeleteStudent([FromRoute] int id)
+  {
+    bool student = _repository.DeleteStudent(id);
+
+    if (!student)
+      return NotFound();
+
+    return NoContent();
+  }
 }
