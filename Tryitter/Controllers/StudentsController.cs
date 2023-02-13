@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Tryitter.Models;
 using Tryitter.Repository;
 
 namespace Tryitter.Controllers;
@@ -18,5 +19,13 @@ public class StudentsController : ControllerBase
   public IActionResult GetStudents()
   {
     return Ok(_repository.GetStudents());
+  }
+
+  [HttpPost]
+  public IActionResult CreateStudent([FromBody] Student student)
+  {
+    _repository.CreateStudent(student);
+
+    return NoContent();
   }
 }
