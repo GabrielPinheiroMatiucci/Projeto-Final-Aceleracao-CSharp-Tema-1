@@ -21,6 +21,17 @@ public class StudentsController : ControllerBase
     return Ok(_repository.GetStudents());
   }
 
+  [HttpGet("{id}")]
+  public IActionResult GetStudent([FromRoute] int id)
+  {
+    Student? student = _repository.GetStudent(id);
+
+    if (student == null)
+      return NotFound();
+
+    return Ok(student);
+  }
+
   [HttpPost]
   public IActionResult CreateStudent([FromBody] Student student)
   {
