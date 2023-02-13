@@ -3,8 +3,12 @@
 Projeto realizado pelos alunos Gabriel Pinheiro e Marcela Silva para o desafio final da Aceleração de C# realizada pela escola [Trybe](https://github.com/tryber).
 
 A dupla escolheu fazer o Tema 1 sugerido.
+<br>
+<br>
 
 ## Contexto
+
+---
 
 A Trybe decidiu desenvolver sua própria rede social, a Tryitter, pois ela terá características próximas à estrutura de uma outra rede social já existente, o Twitter. Totalmente baseada em texto. O objetivo é proporcionar um ambiente em que as pessoas estudantes poderão, por meio de textos e imagens, compartilhar suas experiências e também acessar posts que possam contribuir para seu aprendizado.
 
@@ -13,6 +17,8 @@ Nessa rede social, as pessoas estudantes devem conseguir se cadastrar com nome, 
 Uma pessoa estudante deve poder também publicar posts em seu perfil, que poderão conter texto com até 300 caracteres e arquivos de imagem, além de conseguir pesquisar outras contas por nome e optar por listar todos seus posts ou apenas o último.
 
 O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Que recebera muitas requisições, que, por sua vez, será responsável por manter as informações atualizadas em um banco de dados MySQL Server usando o Framework Entity. Além disso, tudo deve ser disponibilizado na nuvem pela Azure.
+
+<br>
 
 <details>
 <summary><strong>Arquitetura sugerida</strong></summary><br />
@@ -24,6 +30,7 @@ O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Q
 - Algumas rotas devem ser autenticadas por motivos de segurança;
 - As principais funcionalidades do Back-End devem ter testes para garantir que sejam de boa manutenção.
 </details>
+<br>
 
 # Termos e acordos
 
