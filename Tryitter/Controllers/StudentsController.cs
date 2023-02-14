@@ -36,7 +36,7 @@ public class StudentsController : ControllerBase
   }
 
   [HttpPost]
-  [AllowAnonymous]
+  [Authorize("Login")]
   public IActionResult CreateStudent([FromBody] Student student)
   {
     int id = _repository.CreateStudent(student);

@@ -11,17 +11,17 @@ public class TryitterRepository
     _context = context;
   }
 
-  public List<Student>? GetStudents()
+  public virtual List<Student>? GetStudents()
   {
     return _context.Students.ToList();
   }
 
-  public Student? GetStudent(int id)
+  public virtual Student? GetStudent(int id)
   {
     return _context.Students.FirstOrDefault(student => student.Id == id);
   }
 
-  public int CreateStudent(Student student)
+  public virtual int CreateStudent(Student student)
   {
     _context.Students.Add(student);
     _context.SaveChanges();
@@ -29,7 +29,7 @@ public class TryitterRepository
     return student.Id;
   }
 
-  public bool UpdateStudent(int id, Student student)
+  public virtual bool UpdateStudent(int id, Student student)
   {
     if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
       return false;
@@ -40,7 +40,7 @@ public class TryitterRepository
     return true;
   }
 
-  public bool DeleteStudent(int id)
+  public virtual bool DeleteStudent(int id)
   {
     Student? student = GetStudent(id);
 
