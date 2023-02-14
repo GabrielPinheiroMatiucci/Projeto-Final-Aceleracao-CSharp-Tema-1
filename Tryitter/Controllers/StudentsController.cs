@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tryitter.Models;
 using Tryitter.Repository;
@@ -16,12 +17,14 @@ public class StudentsController : ControllerBase
   }
 
   [HttpGet]
+  [AllowAnonymous]
   public IActionResult GetStudents()
   {
     return Ok(_repository.GetStudents());
   }
 
   [HttpGet("{id}")]
+  [AllowAnonymous]
   public IActionResult GetStudent([FromRoute] int id)
   {
     Student? student = _repository.GetStudent(id);
@@ -33,6 +36,7 @@ public class StudentsController : ControllerBase
   }
 
   [HttpPost]
+  [AllowAnonymous]
   public IActionResult CreateStudent([FromBody] Student student)
   {
     int id = _repository.CreateStudent(student);
@@ -41,6 +45,7 @@ public class StudentsController : ControllerBase
   }
 
   [HttpPut("{id}")]
+  [Authorize("Login")]
   public IActionResult UpdateStudent(
     [FromRoute] int id, [FromBody] Student student
   )
@@ -52,6 +57,7 @@ public class StudentsController : ControllerBase
   }
 
   [HttpDelete("{id}")]
+  [Authorize("Login")]
   public IActionResult DeleteStudent([FromRoute] int id)
   {
     bool student = _repository.DeleteStudent(id);
