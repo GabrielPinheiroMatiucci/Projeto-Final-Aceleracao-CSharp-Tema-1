@@ -16,11 +16,6 @@ public class TryitterRepository
     return _context.Students.ToList();
   }
 
-<<<<<<< HEAD:src/Tryitter/Repository/TryitterRepository.cs
-  public List<Post>? GetPosts()
-  {
-    return _context.Posts.ToList();
-=======
   public Student? GetStudent(int id)
   {
     return _context.Students.FirstOrDefault(student => student.Id == id);
@@ -56,6 +51,12 @@ public class TryitterRepository
     _context.SaveChanges();
 
     return true;
->>>>>>> 960690294dff8dc45c4410729d1dc9fea622c039:Tryitter/Repository/TryitterRepository.cs
+  }
+
+
+  public List<Post>? GetPosts()
+  {
+    return _context.Posts.ToList();
+
   }
 }
