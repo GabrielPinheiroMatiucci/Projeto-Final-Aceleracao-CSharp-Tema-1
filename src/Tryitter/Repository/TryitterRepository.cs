@@ -53,7 +53,6 @@ public class TryitterRepository
     return true;
   }
 
-
   public List<Post>? GetPosts()
   {
     return _context.Posts.ToList();
