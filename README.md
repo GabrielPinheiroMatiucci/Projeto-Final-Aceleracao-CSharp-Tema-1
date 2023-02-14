@@ -33,7 +33,7 @@ O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Q
 # Termos e acordos
 
 Ao iniciar este projeto, a dupla concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
-
+****
 # Requisitos
 
 [ ] Testing tasklist 1
