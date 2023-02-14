@@ -18,54 +18,88 @@ O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Q
 
 <br>
 
+### Desenvolvimento
+
 <details>
-<summary><strong>Arquitetura sugerida</strong></summary><br />
-![](https://content-assets.betrybe.com/prod/Arquitetura%20do%20Tema%201.jpeg)
+<summary>Arquitetura sugerida</summary><br />
+
+![Imagem da interação do Front com o Back-End](https://content-assets.betrybe.com/prod/Arquitetura%20do%20Tema%201.jpeg)
 </details>
 <details>
-<summary><strong>Alguns pontos a que a equipe deve se atentar são:</strong></summary><br />
+<summary>Alguns pontos a que a equipe deve se atentar são:</summary>
+
 - Esse serviço recebe muitas requisições, então cuidado para não travar o servidor e deixar outras requisições esperando;
 - Algumas rotas devem ser autenticadas por motivos de segurança;
 - As principais funcionalidades do Back-End devem ter testes para garantir que sejam de boa manutenção.
 </details>
+
+<details><summary>Tecnologias utilizadas</summary>
+
+- Tecnologia uzada foi o ASP .NET com C#  
+- Para realização dos testes: as bibliotecas xUnit e FluentAssertions.as bibliotecas xUnit, FluentAssertions
+</details>
+
+<details><summary>Testes e Cobertura</summary>
+
+Para executar os testes com o .NET, execute o comando dentro do diretório do projeto src/Tryitter ou dos testes src/Tryitter.Test.
+```
+dotnet test
+```
+
 <br>
 
-# Termos e acordos
+### Para rodar o projeto na sua máquina
+<details><summary>Passo a passo para instalar o projeto</summary>
 
-Ao iniciar este projeto, a dupla concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
-****
+```
+git clone git@github.com:GabrielPinheiroMatiucci/Projeto-Final-Aceleracao-CSharp-Tema-1.git
+
+```
+
+```
+cd src
+```
+
+```
+dotnet restore
+```
+
+</details>
+
+<br>
+
 # Requisitos
 
-[ ] Testing tasklist 1
-</br>
-[ ] Testing tasklist 2
-</br>
-[ x ] Testing tasklist 2
-</br>
-
-- [x] Testing tasklist 3
-
 <details>
-<summary><strong>Requisitos sugeridos</strong></summary><br />
-1. [ x ] Utilizar C#, SQL Server e Azure;
+<summary><strong>Requisitos sugeridos</strong></summary>
+
+1. [ ] Utilizar C#, SQL Server e Azure;
 2. [ ] Ter rotas autenticadas e rotas anônimas;
 3. [ ] Utilizar os frameworks xUnit e FluentAssertions para criar testes.
 </details>
 
 <details>
-<summary><strong>Funcionalidades</strong></summary><br />
+<summary><strong>Funcionalidades</strong></summary>
+
 1. [ ] Implementar um C.R.U.D. para as contas de pessoas estudantes;
 2. [ ] Implementar um C.R.U.D. para um post de uma pessoa estudante;
 3. [ ] Alterar um post depois de publicado.
 </details>
 
 <details>
-<summary><strong>Extra</strong></summary><br />
-4. Implementar três endpoints referentes à publicação de posts:
-  - Inserir um post;
-  - Listar todos os seus posts;
-  - Listar o último post.
-5. Implementar dois endpoints referentes à procura de posts em outras contas:
-- Listar todos os posts de uma conta x;
-- Listar o último post de uma conta x.
+<summary><strong>Extra</strong></summary>
+
+4. [ ] Implementar três endpoints referentes à publicação de posts:
+   1. [ ] Inserir um post;
+   2. [ ] Listar todos os seus posts;
+   3. [ ] Listar o último post.
+5. [ ] Implementar dois endpoints referentes à procura de posts em outras contas:
+   1. [ ] Listar todos os posts de uma conta x;
+   2. [ ] Listar o último post de uma conta x.
 </details>
+<br>
+
+
+# Termos e acordos
+
+Ao iniciar este projeto, a dupla concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
