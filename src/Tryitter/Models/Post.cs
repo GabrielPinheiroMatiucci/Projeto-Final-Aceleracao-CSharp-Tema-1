@@ -1,17 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tryitter.Models
 {
 
   public class Post
   {
-    // public Post(string text)
-    // {
-    //   Text = text;
-    // }
-
     [Key]
-    public int Id { get; set; }
+    public int PostId { get; set; }
+
+    public int UserId { get; set; }
 
     [Required]
     [StringLength(300)]
@@ -19,5 +17,8 @@ namespace Tryitter.Models
 
     public DateTime Date { get; set; }
     public string Imagem { get; set; } = null!;
+
+    [ForeignKey("Id")]
+    public int Id { get; set; }
   }
 }

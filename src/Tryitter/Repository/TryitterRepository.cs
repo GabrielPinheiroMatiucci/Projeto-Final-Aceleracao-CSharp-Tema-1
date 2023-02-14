@@ -64,24 +64,24 @@ public class TryitterRepository
     return _context.Posts.ToList().Last();
   }
 
-  public int CreatePost(Student student)
+  public int CreatePost(Post post)
   {
-    _context.Students.Add(student);
+    _context.Posts.Add(post);
     _context.SaveChanges();
 
-    return student.Id;
+    return post.PostId;
   }
 
-  // public bool UpdatePost(int id, Student student)
-  // {
-  //   if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
-  //     return false;
+  public bool UpdatePost(int id, Post post)
+  {
+    if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
+      return false;
 
-  //   _context.Students.Update(student);
-  //   _context.SaveChanges();
+    _context.Students.Update(student);
+    _context.SaveChanges();
 
-  //   return true;
-  // }
+    return true;
+  }
 
   // public bool DeletePost(int id)
   // {
