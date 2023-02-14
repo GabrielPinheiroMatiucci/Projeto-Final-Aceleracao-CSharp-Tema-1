@@ -53,9 +53,46 @@ public class TryitterRepository
     return true;
   }
 
+  // CRUD Post
   public List<Post>? GetPosts()
   {
     return _context.Posts.ToList();
-
   }
+
+  public Post? GetLastPost()
+  {
+    return _context.Posts.ToList().Last();
+  }
+
+  public int CreatePost(Student student)
+  {
+    _context.Students.Add(student);
+    _context.SaveChanges();
+
+    return student.Id;
+  }
+
+  // public bool UpdatePost(int id, Student student)
+  // {
+  //   if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
+  //     return false;
+
+  //   _context.Students.Update(student);
+  //   _context.SaveChanges();
+
+  //   return true;
+  // }
+
+  // public bool DeletePost(int id)
+  // {
+  //   Student? student = GetStudent(id);
+
+  //   if (student == null)
+  //     return false;
+
+  //   _context.Students.Remove(student);
+  //   _context.SaveChanges();
+
+  //   return true;
+  // }
 }
