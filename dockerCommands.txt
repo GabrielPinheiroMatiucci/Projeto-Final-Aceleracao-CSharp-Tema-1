@@ -5,9 +5,9 @@ docker network rm networkTryitter
 
 
 // Banco de dados
-docker run -d --rm --name mysqlTryitter -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ALLOW_EMPTY_PASSWORD=false --mount src=volumeTryitterDatabase,target=/var/lib/mysql --network networkTryitter -p 3333:3306 mysql
+docker run -d --rm --name sqlServerTryitter -e ACCEPT_EULA=Y -e MSSQL_SA_PASSWORD=Password12 --mount src=volumeTryitterDatabase,target=/var/opt/mssql/data --network networkTryitter -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
 
-docker container stop mysqlTryitter
+docker container stop sqlServerTryitter
 
 
 // API
