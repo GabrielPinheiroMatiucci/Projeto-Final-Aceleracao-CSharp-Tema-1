@@ -1,17 +1,23 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Tryitter.Models;
-
-public class Post
+namespace Tryitter.Models
 {
-  public Post(string text)
+
+  public class Post
   {
-    Text = text;
+    // public Post(string text)
+    // {
+    //   Text = text;
+    // }
+
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    [StringLength(300)]
+    public string Text { get; set; } = null!;
+
+    public DateTime Date { get; set; }
+    public string Imagem { get; set; } = null!;
   }
-
-  [Key]
-  public int Id { get; set; }
-
-  [Required]
-  public string Text { get; set; }
 }
