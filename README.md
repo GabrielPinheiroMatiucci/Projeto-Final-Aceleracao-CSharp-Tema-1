@@ -8,8 +8,6 @@ A dupla escolheu fazer o Tema 1 sugerido.
 
 ## Contexto
 
----
-
 A Trybe decidiu desenvolver sua própria rede social, a Tryitter, pois ela terá características próximas à estrutura de uma outra rede social já existente, o Twitter. Totalmente baseada em texto. O objetivo é proporcionar um ambiente em que as pessoas estudantes poderão, por meio de textos e imagens, compartilhar suas experiências e também acessar posts que possam contribuir para seu aprendizado.
 
 Nessa rede social, as pessoas estudantes devem conseguir se cadastrar com nome, e-mail, módulo atual que estão estudando na Trybe, status personalizado e senha para se autenticar. Deve ser possível também alterar essa conta a qualquer momento, desde que a pessoa usuária esteja autenticada.
@@ -38,9 +36,18 @@ Ao iniciar este projeto, a dupla concorda com as diretrizes do Código de Condut
 
 # Requisitos
 
+[ ] Testing tasklist 1
+</br>
+[ ] Testing tasklist 2
+</br>
+[ x ] Testing tasklist 2
+</br>
+
+- [x] Testing tasklist 3
+
 <details>
 <summary><strong>Requisitos sugeridos</strong></summary><br />
-1. [ ] Utilizar C#, SQL Server e Azure;
+1. [ x ] Utilizar C#, SQL Server e Azure;
 2. [ ] Ter rotas autenticadas e rotas anônimas;
 3. [ ] Utilizar os frameworks xUnit e FluentAssertions para criar testes.
 </details>
