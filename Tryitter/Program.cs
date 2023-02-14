@@ -1,5 +1,9 @@
 using Tryitter.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Tryitter.Token;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,9 +28,34 @@ builder.Services.AddDbContext<TryitterContext>(
       .EnableDetailedErrors();
   }
 );
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(options =>
+{
+  options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+  options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+  options.SaveToken = true;
+  options.RequireHttpsMetadata = false;
+  options.TokenValidationParameters = new TokenValidationParameters()
+  {
+    ValidateIssuer = false,
+    ValidateAudience = false,
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = new SymmetricSecurityKey(
+      Encoding.ASCII.GetBytes(TokenConstant.secret)
+    )
+  };
+});
+
+builder.Services.AddAuthorization(options =>
+{
+  options.AddPolicy("Login", p => p.RequireClaim("Role", "Student"));
+});
 
 var app = builder.Build();
 
@@ -46,7 +75,7 @@ using (var scope = app.Services.CreateScope())
 //  app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.MapControllers();
 
 app.UseCors(c => c
