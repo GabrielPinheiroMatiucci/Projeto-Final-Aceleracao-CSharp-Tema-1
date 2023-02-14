@@ -54,45 +54,60 @@ public class TryitterRepository
   }
 
   // CRUD Post
-  public List<Post>? GetPosts()
+  public List<Post>? GetPosts(int id)
   {
-    return _context.Posts.ToList();
+    var result = _context.Posts.Where(post => post.Id == id);
+    return result.ToList();
   }
 
-  public Post? GetLastPost()
+  public Post? GetLastPost(int id)
   {
-    return _context.Posts.ToList().Last();
+    var result = _context.Posts.Where(post => post.Id == id);
+    return result.ToList().Last();
   }
 
-  public int CreatePost(Post post)
+  public int CreatePost(int id, Post post)
   {
+    var student = GetStudent(id);
+
+    // checando se o student
+    if (student == null) throw new InvalidOperationException();
+
     _context.Posts.Add(post);
     _context.SaveChanges();
 
+    // n sei se precisa retornar esse id?
     return post.PostId;
   }
 
   public bool UpdatePost(int id, Post post)
   {
-    if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
-      return false;
+    // poderia fazer uma funçãos p realizar essa checagem ?
+    var student = GetStudent(id);
+    if (student == null) throw new InvalidOperationException();
 
-    _context.Students.Update(student);
+    var resultPost = _context.Posts.Where(contextPost => contextPost.PostId == post.PostId).FirstOrDefault();
+
+    _context.Posts.Update(post);
+    // será que preciso colocar cada integrante do POst? Tipo Text, Image, ...
+    // i.e.: resultPost.Text = post.Text;
+
     _context.SaveChanges();
 
     return true;
   }
 
-  // public bool DeletePost(int id)
-  // {
-  //   Student? student = GetStudent(id);
+  public bool DeletePost(int id, int postId)
+  {
+    // poderia fazer uma funçãos p realizar essa checagem ?
+    var student = GetStudent(id);
+    if (student == null) throw new InvalidOperationException();
 
-  //   if (student == null)
-  //     return false;
+    var post = _context.Posts.Where(post => post.PostId == postId).First();
 
-  //   _context.Students.Remove(student);
-  //   _context.SaveChanges();
+    _context.Posts.Remove(post);
+    _context.SaveChanges();
 
-  //   return true;
-  // }
+    return true;
+  }
 }
