@@ -46,6 +46,8 @@ Para executar os testes com o .NET, execute o comando dentro do diretório do pr
 dotnet test
 ```
 
+</details>
+
 <br>
 
 ### Para rodar o projeto na sua máquina
@@ -65,8 +67,9 @@ dotnet restore
 ```
 
 </details>
-
 <br>
+
+
 
 # Requisitos
 
