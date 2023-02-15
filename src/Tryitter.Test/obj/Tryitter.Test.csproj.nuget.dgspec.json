@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {}
+    "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {}
   },
   "projects": {
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {
+    "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
+        "projectUniqueName": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
         "projectName": "Tryitter.Test",
-        "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
-        "packagesPath": "/Users/Marcela/.nuget/packages/",
-        "outputPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/obj/",
+        "projectPath": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
+        "packagesPath": "/home/gabriel/.nuget/packages/",
+        "outputPath": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Marcela/.nuget/NuGet/NuGet.Config"
+          "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
-                "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj"
+              "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
+                "projectPath": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj"
               }
             }
           }
@@ -99,21 +99,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
+    "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+        "projectUniqueName": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
         "projectName": "Tryitter",
-        "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
-        "packagesPath": "/Users/Marcela/.nuget/packages/",
-        "outputPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
+        "projectPath": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+        "packagesPath": "/home/gabriel/.nuget/packages/",
+        "outputPath": "/home/gabriel/projetosAceleracaoCSharp/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/Marcela/.nuget/NuGet/NuGet.Config"
+          "/home/gabriel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -177,7 +177,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.405/RuntimeIdentifierGraph.json"
         }
       }
     }
