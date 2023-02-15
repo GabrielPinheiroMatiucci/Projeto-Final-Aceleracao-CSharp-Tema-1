@@ -9,7 +9,7 @@ namespace Tryitter.Models
     [Key]
     public int PostId { get; set; }
 
-    public int UserId { get; set; }
+    // public int UserId { get; set; } -> lembrar de trocar o nome no controller
 
     [Required]
     [StringLength(300)]
@@ -20,5 +20,7 @@ namespace Tryitter.Models
 
     [ForeignKey("Id")]
     public int Id { get; set; }
+
+    public Student Student { get; set; }
   }
 }

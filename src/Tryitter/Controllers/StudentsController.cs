@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tryitter.Interfaces;
 using Tryitter.Models;
-using Tryitter.Repository;
 
 namespace Tryitter.Controllers;
 
@@ -9,25 +9,25 @@ namespace Tryitter.Controllers;
 [Route("[controller]")]
 public class StudentsController : ControllerBase
 {
-  private readonly TryitterRepository _repository;
+  private readonly ITryitterRepository _repository;
 
-  public StudentsController(TryitterRepository repository)
+  public StudentsController(ITryitterRepository repository)
   {
     _repository = repository;
   }
 
   [HttpGet]
   [AllowAnonymous]
-  public IActionResult GetStudents()
+  public async Task<IActionResult> GetStudentsAsync()
   {
-    return Ok(_repository.GetStudents());
+    return Ok(await _repository.GetStudentsAsync());
   }
 
   [HttpGet("{id}")]
   [AllowAnonymous]
-  public IActionResult GetStudent([FromRoute] int id)
+  public async Task<IActionResult> GetStudentAsync([FromRoute] int id)
   {
-    Student? student = _repository.GetStudent(id);
+    Student? student = await _repository.GetStudentAsync(id);
 
     if (student == null)
       return NotFound();
@@ -58,9 +58,9 @@ public class StudentsController : ControllerBase
 
   [HttpDelete("{id}")]
   [Authorize("Login")]
-  public IActionResult DeleteStudent([FromRoute] int id)
+  public async Task<IActionResult> DeleteStudentAsync([FromRoute] int id)
   {
-    bool student = _repository.DeleteStudent(id);
+    bool student = await _repository.DeleteStudentAsync(id);
 
     if (!student)
       return NotFound();
