@@ -21,121 +21,138 @@ public class TestStudentsController : IClassFixture<WebApplicationFactory<Progra
     _factory = factory;
   }
 
-  /*  [Fact]
-  public async Task TestGetStudents()
+  [Fact]
+  public async Task TestGetAsyncStudents()
   {
-    HttpClient _client = _factory.CreateClient();
-    List<Student> mockStudents = new List<Student>()
+    List<Student> fakeStudents = new List<Student>()
     {
       new Student("string", "email", "string", "password") { Id = 1 },
       new Student("string", "email", "string", "password") { Id = 2 },
     };
-    var mockGet = new Mock<TryitterRepository>();
-    mockGet
-      .Setup(m => m.GetStudents())
-      .Returns(mockStudents);
-    HttpResponseMessage response = await _client.GetAsync("/students");
-    List<Student> content = await response.Content.ReadFromJsonAsync<List<Student>>();
 
-    response.StatusCode.Should().Be(HttpStatusCode.OK);
-    content.Should().NotBeNullOrEmpty();
+    var mockGet = new Mock<ITryitterRepository>();
+    mockGet
+      .Setup(m => m.GetStudentsAsync())
+      .ReturnsAsync(fakeStudents);
+
+    StudentsController _controller = new(mockGet.Object);
+    var result = await _controller.GetStudentsAsync();
+    var okResult = result.As<OkObjectResult>();
+
+    okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
+    mockGet.Verify(m => m.GetStudentsAsync(), Times.Once);
   }
+
   [Fact]
-  public async Task TestGetStudent()
+  public async Task TestGetAsyncStudent()
   {
-    HttpClient _client = _factory.CreateClient();
-    Student mockStudent = new("string", "email", "string", "password") { Id = 1 };
-    var mockGet = new Mock<TryitterRepository>();
-    mockGet
-      .Setup(m => m.GetStudent(It.IsAny<int>()))
-      .Returns(mockStudent);
-    HttpResponseMessage response = await _client.GetAsync("/students/1");
-    Student content = await response.Content.ReadFromJsonAsync<Student>();
+    Student fakeStudent = new ("string", "email", "string", "password") { Id = 1 };
 
-    response.StatusCode.Should().Be(HttpStatusCode.OK);
-    content.Should().NotBeNull();
+    var mockGet = new Mock<ITryitterRepository>();
+    mockGet
+      .Setup(m => m.GetStudentAsync(It.IsAny<int>()))
+      .ReturnsAsync(fakeStudent);
+
+    StudentsController _controller = new(mockGet.Object);
+    var result = await _controller.GetStudentAsync(1);
+    var okResult = result.As<OkObjectResult>();
+
+    okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
+    mockGet.Verify(m => m.GetStudentAsync(It.IsAny<int>()), Times.Once);
   }
-  */
+
   [Theory]
   [InlineData("email@email.com", "123")]
   public void TestCreateSuccess(string email, string password)
   {
     Student fakeStudent = new("string", email, "string", password) { Id = 1 };
 
-    var mockUpdate = new Mock<ITryitterRepository>();
-    mockUpdate
+    var mockCreate = new Mock<ITryitterRepository>();
+    mockCreate
       .Setup(m => m.CreateStudent(It.IsAny<Student>()))
       .Returns(1);
 
-    StudentsController _controller = new(mockUpdate.Object);
+    StudentsController _controller = new(mockCreate.Object);
     var result = _controller.CreateStudent(fakeStudent);
-
     var createdResult = result.As<CreatedResult>();
 
     createdResult.StatusCode.Should().Be((int)HttpStatusCode.Created);
-    mockUpdate.Verify(m => m.CreateStudent(It.IsAny<Student>()), Times.Once);
+    mockCreate.Verify(m => m.CreateStudent(It.IsAny<Student>()), Times.Once);
   }
-  /*
+
   [Theory]
   [InlineData("email@email.com", "123")]
   public async Task TestPutSuccess(string email, string password)
   {
-    HttpClient _client = _factory.CreateClient();
-    Student mockStudent = new("string", email, "string", password) { Id = 99 };
-    Credentials credentials = new(email, password);
-    var mockGet = new Mock<TryitterRepository>();
-    mockGet
-      .Setup(m => m.GetStudent(It.IsAny<int>()))
-      .Returns(mockStudent);
-    var mockUpdate = new Mock<TryitterRepository>();
+    Student fakeStudent = new("string", email, "string", password) { Id = 1 };
+
+    var mockUpdate = new Mock<ITryitterRepository>();
     mockUpdate
       .Setup(m => m.UpdateStudent(It.IsAny<int>(), It.IsAny<Student>()))
       .Returns(true);
-    HttpResponseMessage loginResponse = await _client
-      .PostAsJsonAsync("/login", mockStudent);
-    string token = await loginResponse.Content.ReadAsStringAsync();
-    token.Should().NotBeNull();
-    _client
-      .DefaultRequestHeaders
-      .Authorization = new AuthenticationHeaderValue("Bearer", token);
-    HttpResponseMessage response = await _client.PutAsJsonAsync("/students/99", mockStudent);
-    response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+
+    StudentsController _controller = new(mockUpdate.Object);
+    var result = _controller.UpdateStudent(1, fakeStudent);
+    var noContentResult = result.As<NoContentResult>();
+
+    noContentResult.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+    mockUpdate.Verify(m => m.UpdateStudent(It.IsAny<int>(), It.IsAny<Student>()), Times.Once);
   }
-  [Theory]
-  [InlineData("123456789")]
-  public async Task TestPutFail(string invalidToken)
-  {
-    HttpClient _client = _factory.CreateClient();
-    Student mockStudent = new("string", "email", "string", "password") { Id = 1 };
-    _client
-      .DefaultRequestHeaders
-      .Authorization = new AuthenticationHeaderValue("Bearer", invalidToken);
-    HttpResponseMessage response = await _client.PutAsJsonAsync("/students/1", mockStudent);
-    response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-  }
+
   [Theory]
   [InlineData("email@email.com", "123")]
-  public async Task TestDeleteSuccess(string email, string password)
+  public async Task TestPutFail(string email, string password)
   {
-    HttpClient _client = _factory.CreateClient();
-    Student mockStudent = new("string", email, "string", password) { Id = 1 };
-    Credentials credentials = new(email, password);
-    var mockGet = new Mock<TryitterRepository>();
-    mockGet
-      .Setup(m => m.GetStudent(It.IsAny<int>()))
-      .Returns(mockStudent);
-    var mockUpdate = new Mock<TryitterRepository>();
+    Student fakeStudent = new("string", email, "string", password) { Id = 1 };
+
+    var mockUpdate = new Mock<ITryitterRepository>();
     mockUpdate
-      .Setup(m => m.DeleteStudent(It.IsAny<int>()))
-      .Returns(true);
-    HttpResponseMessage loginResponse = await _client
-      .PostAsJsonAsync("/login", mockStudent);
-    string token = await loginResponse.Content.ReadAsStringAsync();
-    token.Should().NotBeNull();
-    _client
-      .DefaultRequestHeaders
-      .Authorization = new AuthenticationHeaderValue("Bearer", token);
-    HttpResponseMessage response = await _client.DeleteAsync("/students/1");
-    response.StatusCode.Should().Be(HttpStatusCode.NoContent);
-  } */
+      .Setup(m => m.UpdateStudent(It.IsAny<int>(), It.IsAny<Student>()))
+      .Returns(false);
+
+    StudentsController _controller = new(mockUpdate.Object);
+    var result = _controller.UpdateStudent(1, fakeStudent);
+    var badRequestResult = result.As<BadRequestResult>();
+
+    badRequestResult.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+    mockUpdate.Verify(m => m.UpdateStudent(It.IsAny<int>(), It.IsAny<Student>()), Times.Once);
+  }
+
+  [Theory]
+  [InlineData("email@email.com", "123")]
+  public async Task TestDeleteAsyncSuccess(string email, string password)
+  {
+    Student fakeStudent = new("string", email, "string", password) { Id = 1 };
+
+    var mockDelete = new Mock<ITryitterRepository>();
+    mockDelete
+      .Setup(m => m.DeleteStudentAsync(It.IsAny<int>()))
+      .ReturnsAsync(true);
+
+    StudentsController _controller = new(mockDelete.Object);
+    var result = await _controller.DeleteStudentAsync(1);
+    var noContentResult = result.As<NoContentResult>();
+
+    noContentResult.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+    mockDelete.Verify(m => m.DeleteStudentAsync(It.IsAny<int>()), Times.Once);
+  }
+
+  [Theory]
+  [InlineData("email@email.com", "123")]
+  public async Task TestDeleteAsyncFail(string email, string password)
+  {
+    Student fakeStudent = new("string", email, "string", password) { Id = 1 };
+
+    var mockDelete = new Mock<ITryitterRepository>();
+    mockDelete
+      .Setup(m => m.DeleteStudentAsync(It.IsAny<int>()))
+      .ReturnsAsync(false);
+
+    StudentsController _controller = new(mockDelete.Object);
+    var result = await _controller.DeleteStudentAsync(1);
+    var notFoundResult = result.As<NotFoundResult>();
+
+    notFoundResult.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+    mockDelete.Verify(m => m.DeleteStudentAsync(It.IsAny<int>()), Times.Once);
+  }
 }
