@@ -66,8 +66,6 @@ public class TryitterRepository/*  : ITryitterRepository */
   public async Task<Post?> GetPostById(int postId)
   {
     var resultPost = await _context.Posts.FindAsync(postId);
-
-    // if (resultPost == null) return throwErr  
     return resultPost;
   }
 
