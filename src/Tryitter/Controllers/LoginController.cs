@@ -19,11 +19,11 @@ public class LoginController : ControllerBase
 
   [HttpPost]
   [AllowAnonymous]
-  public IActionResult Login([FromBody] Credentials credentials)
+  public async Task<IActionResult> Login([FromBody] Credentials credentials)
   {
     if (credentials.Email == "email@email.com" && credentials.Password == "123")
     {
-      Student student = _repository.GetStudent(9);
+      Student student = await _repository.GetStudentAsync(2);
       string token = TokenGenerator.Generate(student);
 
       return Ok(token);
