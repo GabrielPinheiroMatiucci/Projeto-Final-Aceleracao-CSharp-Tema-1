@@ -21,6 +21,6 @@ namespace Tryitter.Models
     [ForeignKey("Id")]
     public int Id { get; set; }
 
-    public Student Student { get; set; }
+    public Student Student { get; set; } = null!;
   }
 }
