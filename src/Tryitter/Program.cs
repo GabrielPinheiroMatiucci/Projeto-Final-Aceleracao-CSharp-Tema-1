@@ -22,7 +22,7 @@ builder.Services.AddDbContext<TryitterContext>(
     var version = ServerVersion.AutoDetect(connectionString);
 
     options
-      .UseMySql( connectionString, new MySqlServerVersion(version))
+      .UseMySql(connectionString, new MySqlServerVersion(version))
       .LogTo(Console.WriteLine, LogLevel.Information)
       .EnableSensitiveDataLogging()
       .EnableDetailedErrors();
@@ -86,4 +86,4 @@ app.UseCors(c => c
 
 app.Run();
 
-public partial class Program {}
+public partial class Program { }
