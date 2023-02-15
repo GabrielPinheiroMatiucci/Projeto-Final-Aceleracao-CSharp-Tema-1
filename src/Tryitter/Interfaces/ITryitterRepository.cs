@@ -14,13 +14,15 @@ public interface ITryitterRepository
 
   Task<bool> DeleteStudentAsync(int id);
 
-  List<Post>? GetPosts(int id);
+  Task<List<Post>>? GetAllPostsAsync(int id);
 
-  Post? GetLastPost(int id);
+  Task<Post?> GetPostByIdAsync(int id);
 
-  Task<int> CreatePostAsync(int id, Post post);
+  Task<Post?> GetLastPostAsync(int id);
 
-  Task<bool> UpdatePostAsync(int id, Post post);
+  int CreatePost(Post post);
 
-  Task<bool> DeletePostAsync(int id, int postId);
+  bool UpdatePost(int postId, Post newPost);
+
+  Task<bool> DeletePostAsync(int postId);
 }

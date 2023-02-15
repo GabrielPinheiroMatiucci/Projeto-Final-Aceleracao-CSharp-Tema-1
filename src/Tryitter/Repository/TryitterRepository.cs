@@ -102,7 +102,6 @@ public class TryitterRepository : ITryitterRepository
     return true;
   }
 
-
   public async Task<bool> DeletePostAsync(int postId)
   {
     var resultPost = await GetPostByIdAsync(postId);
