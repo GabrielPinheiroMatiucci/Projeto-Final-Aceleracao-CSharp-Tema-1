@@ -14,12 +14,10 @@ namespace Tryitter.Test;
 
 public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 {
-  private readonly WebApplicationFactory<Program> _factory;
+  // [Fact]
+  // public async Task TestGetAsyncAllPosts()
+  // {
 
-  public TestPostController(WebApplicationFactory<Program> factory)
-  {
-    _factory = factory;
-  }
-
+  // }
 
 }

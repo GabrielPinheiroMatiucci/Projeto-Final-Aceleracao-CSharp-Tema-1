@@ -23,9 +23,9 @@ public class PostsController : ControllerBase
   // }
 
   [HttpGet]
-  public async Task<IActionResult> GetAllPostsAsync()
+  public async Task<IActionResult> GetAllPostsAsync(int id)
   {
-    return Ok(await _repository.GetAllPostsAsync());
+    return Ok(await _repository.GetAllPostsAsync(id));
   }
 
 
