@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Tryitter.Repository;
 
-public class TryitterRepository : ITryitterRepository
+public class TryitterRepository/*  : ITryitterRepository */
 {
   private readonly TryitterContext _context;
 
