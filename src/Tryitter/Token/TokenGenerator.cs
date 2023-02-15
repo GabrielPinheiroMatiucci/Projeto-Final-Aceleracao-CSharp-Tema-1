@@ -23,7 +23,7 @@ public static class TokenGenerator
     };
 
     var token = tokenHandler.CreateToken(tokenDescriptor);
-    
+
     return tokenHandler.WriteToken(token);
   }
 
