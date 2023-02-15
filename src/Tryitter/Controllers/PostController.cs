@@ -1,15 +1,17 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Tryitter.Repository;
+using Tryitter.Interfaces;
+using Tryitter.Models;
 
 namespace Tryitter.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PostController : ControllerBase
+public class PostsController : ControllerBase
 {
-  private readonly TryitterRepository _repository;
+  private readonly ITryitterRepository _repository;
 
-  public PostController(TryitterRepository repository)
+  public PostsController(ITryitterRepository repository)
   {
     _repository = repository;
   }
