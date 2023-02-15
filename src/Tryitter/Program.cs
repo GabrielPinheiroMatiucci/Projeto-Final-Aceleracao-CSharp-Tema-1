@@ -12,20 +12,8 @@ builder.Services.AddScoped<TryitterRepository>();
 builder.Services.AddDbContext<TryitterContext>(
   options =>
   {
-    string connectionString;
-
-    if (builder.Environment.IsDevelopment())
-      connectionString = "server=localhost;port=3333;database=Tryitter;user=root;password=root";
-    else
-      connectionString = "server=mysqlTryitter;port=3306;database=Tryitter;user=root;password=root";
-
-    var version = ServerVersion.AutoDetect(connectionString);
-
-    options
-      .UseMySql(connectionString, new MySqlServerVersion(version))
-      .LogTo(Console.WriteLine, LogLevel.Information)
-      .EnableSensitiveDataLogging()
-      .EnableDetailedErrors();
+    string connectionString = "Server=localhost;Database=Tryitter;User=sa;Password=Password12";
+    options.UseSqlServer(connectionString);
   }
 );
 
