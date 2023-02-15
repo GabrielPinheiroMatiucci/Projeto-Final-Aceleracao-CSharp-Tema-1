@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aFT4nt4ivp8pTc7OJNFvAFkppsGL0/d6QLNsSLeuG9eaZi58Tzl0h/HG9FEZIyTUPNFQUq51SCtgwZVhABntsQ==",
+  "dgSpecHash": "dtavgtGMnwcapu9wiTB1z0IRPsINMISVcPtvwqw0oals4bXAV+yfOqRjs6YCg8P4X580VxA/yDxcG+W+ITEJiA==",
   "success": true,
-  "projectFilePath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+  "projectFilePath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
   "expectedPackageFiles": [
     "/Users/Marcela/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/Marcela/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

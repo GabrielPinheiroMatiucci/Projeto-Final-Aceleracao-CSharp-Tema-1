@@ -2885,11 +2885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+      "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
       "projectName": "Tryitter",
-      "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+      "projectPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
       "packagesPath": "/Users/Marcela/.nuget/packages/",
-      "outputPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
+      "outputPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/Marcela/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kiJdZPUYKuO0hN1i1OqRDo9YvTfdiyJhDiBeaTW7KGud0+wISdTf37/10qJ5NX9/1zvYrkREGIqCV/VMLDwz0g==",
+  "dgSpecHash": "FPIUROVk1s96qCoS5+5x/NZ1xfN5Kwj7AdrQ/Pz8H6QFBzvTg65FvswUIy502EO+TTUWQvBqKNT/idjYDwx3YA==",
   "success": true,
-  "projectFilePath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
+  "projectFilePath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
   "expectedPackageFiles": [
     "/Users/Marcela/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/Marcela/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",

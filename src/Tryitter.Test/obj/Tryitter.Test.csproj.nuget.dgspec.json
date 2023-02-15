@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {}
+    "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {}
   },
   "projects": {
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {
+    "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
+        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
         "projectName": "Tryitter.Test",
-        "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
+        "projectPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/Tryitter.Test.csproj",
         "packagesPath": "/Users/Marcela/.nuget/packages/",
-        "outputPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/obj/",
+        "outputPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Marcela/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
-                "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj"
+              "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
+                "projectPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj"
               }
             }
           }
@@ -103,14 +103,14 @@
         }
       }
     },
-    "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
+    "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+        "projectUniqueName": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
         "projectName": "Tryitter",
-        "projectPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
+        "projectPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/Tryitter.csproj",
         "packagesPath": "/Users/Marcela/.nuget/packages/",
-        "outputPath": "/Users/Marcela/trybe-c#/projeto-final/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
+        "outputPath": "/Users/Marcela/trybe-c#/projeto-final2/Projeto-Final-Aceleracao-CSharp-Tema-1/src/Tryitter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Marcela/.nuget/NuGet/NuGet.Config"
