@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Tryitter.Repository;
 
-public class TryitterRepository/*  : ITryitterRepository */
+public class TryitterRepository : ITryitterRepository
 {
   private readonly TryitterContext _context;
 
@@ -62,8 +62,13 @@ public class TryitterRepository/*  : ITryitterRepository */
 
     return postsResult;
   }
+  // public virtual async Task<IEnumerable<Post>>? GetAllPostsAsync()
+  // {
+  //   var postsResult = await _context.Posts.ToListAsync();
 
-  public async Task<Post?> GetPostById(int postId)
+  //   return postsResult;
+  // }
+  public async Task<Post?> GetPostByIdAsync(int postId)
   {
     var resultPost = await _context.Posts.FindAsync(postId);
     return resultPost;
@@ -78,7 +83,7 @@ public class TryitterRepository/*  : ITryitterRepository */
     return postsResult[lastIndex];
   }
 
-  public virtual int CreatePostAsync(Post post)
+  public virtual int CreatePost(Post post)
   {
     _context.Posts.Add(post);
     _context.SaveChanges();
@@ -86,9 +91,9 @@ public class TryitterRepository/*  : ITryitterRepository */
     return post.PostId;
   }
 
-  public virtual bool UpdatePostAsync(int postId, Post newPost)
+  public virtual bool UpdatePost(int postId, Post newPost)
   {
-    var resultPost = GetPostById(postId);
+    var resultPost = GetPostByIdAsync(postId);
     if (resultPost == null) return false;
 
     _context.Posts.Update(newPost);
@@ -100,7 +105,7 @@ public class TryitterRepository/*  : ITryitterRepository */
 
   public async Task<bool> DeletePostAsync(int postId)
   {
-    var resultPost = await GetPostById(postId);
+    var resultPost = await GetPostByIdAsync(postId);
     if (resultPost == null) return false;
 
     _context.Posts.Remove(resultPost);

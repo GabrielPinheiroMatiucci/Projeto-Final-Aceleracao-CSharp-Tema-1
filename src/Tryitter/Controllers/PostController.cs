@@ -16,42 +16,71 @@ public class PostsController : ControllerBase
     _repository = repository;
   }
 
-  [HttpGet("post")] /* talvez faria o caminho como sendo: student/id/post */
-  public IActionResult GetPosts(int id) /* ainda na dúvida se deeveria colocar o id do student */
+  // [HttpGet("{id}")] /* talvez faria o caminho como sendo: student/id/post */
+  // public async Task<IActionResult> GetAllPostsAsync(int id)
+  // {
+  //   return Ok(await _repository.GetAllPostsAsync(id));
+  // }
+
+  [HttpGet]
+  public async Task<IActionResult> GetAllPostsAsync()
   {
-    return Ok(_repository.GetPosts(id));
+    return Ok(await _repository.GetAllPostsAsync());
+  }
+
+
+  [AllowAnonymous]
+  [HttpGet("{id}")]
+
+  public async Task<IActionResult> GetPostByIdAsync([FromRoute] int id)
+  {
+    Post? post = await _repository.GetPostByIdAsync(id);
+
+    if (post == null)
+      return NotFound();
+
+    return Ok(post);
   }
 
   [HttpGet]
-  public IActionResult GetLastPost(int id)
+  public async Task<IActionResult> GetLastPostAsync(int id)
   {
-    return Ok(_repository.GetLastPost(id));
+    var post = _repository.GetLastPostAsync(id);
+    if (post == null) return NotFound();
+    return Ok(post);
   }
 
-  // [HttpPost]
-  // public IActionResult CreatePost(int id, Post post)
-  // {
-  //   return Ok(_repository.CreatePost(id, post));
-  // }
-  //   [HttpPost]
-  // public IActionResult 
-  // {
-  // return Ok(_repository.);
+  [HttpPost]
+  [Authorize("Login")]
 
-  // }
+  public IActionResult CreatePost([FromBody] Post post)
+  {
+    int id = _repository.CreatePost(post);
+    return Created($"/posts/{id}", post);
+  }
 
-  // [HttpGet]
-  // public IActionResult
-  // {
-  // return Ok(_repository.);
-  // 
-  // }
 
-  // [HttpGet]
-  // public IActionResult
-  // {
-  // return Ok(_repository.);
-  // 
-  // }
+  [HttpPost]
+  [HttpPut("{id}")]
+  [Authorize("Login")]
+  public IActionResult UpdatePost([FromBody] int postId, Post newPost)
+  {
+    if (_repository.UpdatePost(postId, newPost))
+      return NoContent();
 
+    return BadRequest();
+
+  }
+
+  [HttpGet]
+  public async Task<IActionResult> DeletePostAsync([FromBody] int postId)
+  {
+    bool post = await _repository.DeletePostAsync(postId);
+
+    if (!post)
+      return NotFound();
+
+    return NoContent();
+
+  }
 }
