@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tryitter", "Tryitter\Tryitter.csproj", "{4AC82349-CADD-46B8-8204-7F674C0CB41C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tryitter", "\src\Tryitter\Tryitter.csproj", "{4AC82349-CADD-46B8-8204-7F674C0CB41C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tryitter.Test", "Tryitter.Test\Tryitter.Test.csproj", "{8C2E4533-0C67-4BAE-8D69-4DE914693F03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tryitter.Test", "\src\Tryitter.Test\Tryitter.Test.csproj", "{8C2E4533-0C67-4BAE-8D69-4DE914693F03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
