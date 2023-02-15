@@ -23,12 +23,18 @@ public class LoginController : ControllerBase
   {
     if (credentials.Email == "email@email.com" && credentials.Password == "123")
     {
-      Student student = await _repository.GetStudentAsync(2);
-      string token = TokenGenerator.Generate(student);
+      try
+      {
+        Student student = await _repository.GetStudentAsync(2);
+        string token = TokenGenerator.Generate(student);
 
-      return Ok(token);
+        return Ok(token);        
+      }
+      catch (Exception)
+      {
+        return NotFound();
+      }
     }
-
     return NotFound();
   }
 }
