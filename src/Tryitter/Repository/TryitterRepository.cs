@@ -13,17 +13,17 @@ public class TryitterRepository : ITryitterRepository
     _context = context;
   }
 
-  public virtual async Task<List<Student>>? GetStudentsAsync()
+  public async Task<List<Student>>? GetStudentsAsync()
   {
     return await _context.Students.ToListAsync();
   }
 
-  public virtual async Task<Student?> GetStudentAsync(int id)
+  public async Task<Student>? GetStudentAsync(int id)
   {
     return await _context.Students.FirstOrDefaultAsync(student => student.Id == id);
   }
 
-  public virtual int CreateStudent(Student student)
+  public int CreateStudent(Student student)
   {
     _context.Students.Add(student);
     _context.SaveChanges();
@@ -31,7 +31,7 @@ public class TryitterRepository : ITryitterRepository
     return student.Id;
   }
 
-  public virtual bool UpdateStudent(int id, Student student)
+  public bool UpdateStudent(int id, Student student)
   {
     if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
       return false;
@@ -42,7 +42,7 @@ public class TryitterRepository : ITryitterRepository
     return true;
   }
 
-  public virtual async Task<bool> DeleteStudentAsync(int id)
+  public async Task<bool> DeleteStudentAsync(int id)
   {
     Student? student = await GetStudentAsync(id);
 
