@@ -18,7 +18,7 @@ public class TryitterRepository : ITryitterRepository
     return await _context.Students.ToListAsync();
   }
 
-  public async Task<Student?> GetStudentAsync(int id)
+  public async Task<Student>? GetStudentAsync(int id)
   {
     return await _context.Students.FirstOrDefaultAsync(student => student.Id == id);
   }

@@ -4,7 +4,7 @@ namespace Tryitter.Interfaces;
 
 public interface ITryitterRepository
 {
-  Task<List<Student>?> GetStudentsAsync();
+  Task<List<Student>>? GetStudentsAsync();
 
   Task<Student?> GetStudentAsync(int id);
 
