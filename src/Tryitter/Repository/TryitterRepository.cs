@@ -1,8 +1,10 @@
 using Tryitter.Models;
+using Tryitter.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tryitter.Repository;
 
-public class TryitterRepository
+public class TryitterRepository : ITryitterRepository
 {
   private readonly TryitterContext _context;
 
@@ -11,17 +13,17 @@ public class TryitterRepository
     _context = context;
   }
 
-  public List<Student>? GetStudents()
+  public virtual async Task<List<Student>>? GetStudentsAsync()
   {
-    return _context.Students.ToList();
+    return await _context.Students.ToListAsync();
   }
 
-  public Student? GetStudent(int id)
+  public virtual async Task<Student?> GetStudentAsync(int id)
   {
-    return _context.Students.FirstOrDefault(student => student.Id == id);
+    return await _context.Students.FirstOrDefaultAsync(student => student.Id == id);
   }
 
-  public int CreateStudent(Student student)
+  public virtual int CreateStudent(Student student)
   {
     _context.Students.Add(student);
     _context.SaveChanges();
@@ -29,7 +31,7 @@ public class TryitterRepository
     return student.Id;
   }
 
-  public bool UpdateStudent(int id, Student student)
+  public virtual bool UpdateStudent(int id, Student student)
   {
     if (!_context.Students.Any(std => std.Id == id) || id != student.Id)
       return false;
@@ -40,9 +42,9 @@ public class TryitterRepository
     return true;
   }
 
-  public bool DeleteStudent(int id)
+  public virtual async Task<bool> DeleteStudentAsync(int id)
   {
-    Student? student = GetStudent(id);
+    Student? student = await GetStudentAsync(id);
 
     if (student == null)
       return false;
@@ -66,9 +68,9 @@ public class TryitterRepository
     return result.ToList().Last();
   }
 
-  public int CreatePost(int id, Post post)
+  public async Task<int> CreatePostAsync(int id, Post post)
   {
-    var student = GetStudent(id);
+    var student = await GetStudentAsync(id);
 
     // checando se o student
     if (student == null) throw new InvalidOperationException();
@@ -80,10 +82,10 @@ public class TryitterRepository
     return post.PostId;
   }
 
-  public bool UpdatePost(int id, Post post)
+  public async Task<bool> UpdatePostAsync(int id, Post post)
   {
     // poderia fazer uma funçãos p realizar essa checagem ?
-    var student = GetStudent(id);
+    var student = await GetStudentAsync(id);
     if (student == null) throw new InvalidOperationException();
 
     var resultPost = _context.Posts.Where(contextPost => contextPost.PostId == post.PostId).FirstOrDefault();
@@ -97,10 +99,10 @@ public class TryitterRepository
     return true;
   }
 
-  public bool DeletePost(int id, int postId)
+  public async Task<bool> DeletePostAsync(int id, int postId)
   {
     // poderia fazer uma funçãos p realizar essa checagem ?
-    var student = GetStudent(id);
+    var student = await GetStudentAsync(id);
     if (student == null) throw new InvalidOperationException();
 
     var post = _context.Posts.Where(post => post.PostId == postId).First();

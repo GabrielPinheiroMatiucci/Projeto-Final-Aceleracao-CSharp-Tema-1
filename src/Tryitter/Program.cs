@@ -4,11 +4,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Tryitter.Token;
 using System.Text;
+using Tryitter.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<TryitterContext>();
-builder.Services.AddScoped<TryitterRepository>();
+builder.Services.AddScoped<ITryitterRepository, TryitterRepository>();
 builder.Services.AddDbContext<TryitterContext>(
   options =>
   {

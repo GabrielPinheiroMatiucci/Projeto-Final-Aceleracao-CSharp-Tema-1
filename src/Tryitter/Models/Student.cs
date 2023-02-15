@@ -20,4 +20,6 @@ public class Student : Credentials
 
   [Required]
   public string Module { get; set; }
+
+  public IEnumerable<Post>? Posts { get; set; }
 }
