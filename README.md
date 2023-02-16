@@ -36,7 +36,7 @@ O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Q
 <details><summary>Tecnologias utilizadas</summary>
 
 - Tecnologia uzada foi o ASP .NET com C#  
-- Para realização dos testes: as bibliotecas xUnit e FluentAssertions.as bibliotecas xUnit, FluentAssertions
+- Para realização dos testes: as bibliotecas xUnit e FluentAssertions e a xUnit.
  
   ![alt text](https://img.shields.io/badge/Microsoft-666666?style=for-the-badge&logo=microsoft&logoColor=white) ![alt text](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white) ![alt text](https://img.shields.io/badge/Microsoft_SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)![alt text](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 </details>
