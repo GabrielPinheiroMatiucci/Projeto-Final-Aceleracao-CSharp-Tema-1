@@ -14,10 +14,13 @@ namespace Tryitter.Test;
 
 public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 {
-  // [Fact]
-  // public async Task TestGetAsyncAllPosts()
-  // {
-
-  // }
+  [Fact]
+  public async Task TestGetAsyncAllPosts()
+  {
+    List<Post> fakePosts = new List<Post>()
+    {
+      // new Post("imageString", "textString") { PostId = 1, Id = 1 },
+    };
+  }
 
 }

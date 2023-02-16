@@ -6,10 +6,18 @@ namespace Tryitter.Models
 
   public class Post
   {
+    public Post(string text, string image, DateTime date)
+    {
+      Text = text;
+      Imagem = image;
+      Date = date;
+    }
+
     [Key]
     public int PostId { get; set; }
 
-    // public int UserId { get; set; } -> lembrar de trocar o nome no controller
+    [ForeignKey("Id")] /* Id do studant */
+    public int Id { get; set; }
 
     [Required]
     [StringLength(300)]
@@ -17,10 +25,5 @@ namespace Tryitter.Models
 
     public DateTime Date { get; set; }
     public string Imagem { get; set; } = null!;
-
-    [ForeignKey("Id")]
-    public int Id { get; set; }
-
-    public Student Student { get; set; } = null!;
   }
 }
