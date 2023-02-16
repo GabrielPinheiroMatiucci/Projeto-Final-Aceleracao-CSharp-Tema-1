@@ -11,7 +11,7 @@ namespace Tryitter.Test;
 public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 {
   [Fact]
-  public async Task TestGetAsyncAllPosts() /* Está falhando */
+  public async Task TestGetAsyncAllPosts() /* failed */
   {
     List<Post> fakePosts = new List<Post>()
     {
@@ -34,7 +34,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
   }
 
   [Fact]
-  public async Task TestGetPostByIdAsync()
+  public async Task TestGetPostByIdAsync() /* failed */
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = 1, Id = 1 };
 
