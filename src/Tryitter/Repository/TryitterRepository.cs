@@ -56,58 +56,58 @@ public class TryitterRepository : ITryitterRepository
   }
 
   // CRUD Post
-  public List<Post>? GetPosts(int id)
+  public virtual async Task<List<Post>>? GetAllPostsAsync(int id)
   {
-    var result = _context.Posts.Where(post => post.Id == id);
-    return result.ToList();
+    var postsResult = await _context.Posts.Where(post => post.Id == id).ToListAsync();
+
+    return postsResult;
+  }
+  // public virtual async Task<IEnumerable<Post>>? GetAllPostsAsync()
+  // {
+  //   var postsResult = await _context.Posts.ToListAsync();
+
+  //   return postsResult;
+  // }
+  public async Task<Post?> GetPostByIdAsync(int postId)
+  {
+    var resultPost = await _context.Posts.FindAsync(postId);
+    return resultPost;
   }
 
-  public Post? GetLastPost(int id)
+  // deveria ser async?? 
+  public virtual async Task<Post?> GetLastPostAsync(int id) /* esse id é do student */
   {
-    var result = _context.Posts.Where(post => post.Id == id);
-    return result.ToList().Last();
+    var postsResult = _context.Posts.Where(post => post.Id == id).ToList();
+    var lastIndex = postsResult.Count - 1;
+
+    return postsResult[lastIndex];
   }
 
-  public async Task<int> CreatePostAsync(int id, Post post)
+  public virtual int CreatePost(Post post)
   {
-    var student = await GetStudentAsync(id);
-
-    // checando se o student
-    if (student == null) throw new InvalidOperationException();
-
     _context.Posts.Add(post);
     _context.SaveChanges();
 
-    // n sei se precisa retornar esse id?
     return post.PostId;
   }
 
-  public async Task<bool> UpdatePostAsync(int id, Post post)
+  public virtual bool UpdatePost(int postId, Post newPost)
   {
-    // poderia fazer uma funçãos p realizar essa checagem ?
-    var student = await GetStudentAsync(id);
-    if (student == null) throw new InvalidOperationException();
+    var resultPost = GetPostByIdAsync(postId);
+    if (resultPost == null) return false;
 
-    var resultPost = _context.Posts.Where(contextPost => contextPost.PostId == post.PostId).FirstOrDefault();
-
-    _context.Posts.Update(post);
-    // será que preciso colocar cada integrante do POst? Tipo Text, Image, ...
-    // i.e.: resultPost.Text = post.Text;
-
+    _context.Posts.Update(newPost);
     _context.SaveChanges();
 
     return true;
   }
 
-  public async Task<bool> DeletePostAsync(int id, int postId)
+  public async Task<bool> DeletePostAsync(int postId)
   {
-    // poderia fazer uma funçãos p realizar essa checagem ?
-    var student = await GetStudentAsync(id);
-    if (student == null) throw new InvalidOperationException();
+    var resultPost = await GetPostByIdAsync(postId);
+    if (resultPost == null) return false;
 
-    var post = _context.Posts.Where(post => post.PostId == postId).First();
-
-    _context.Posts.Remove(post);
+    _context.Posts.Remove(resultPost);
     _context.SaveChanges();
 
     return true;
