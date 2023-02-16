@@ -89,7 +89,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
   [Theory]
   [InlineData("textStringInline")]
-  public void TestCreatePostSucess(string post)
+  public void TestCreatePostSucess(string post) /* Passed  */
   {
     Post fakePost = new(post, "imageString", "dateString") { PostId = 1, Id = 1 };
 
@@ -108,9 +108,9 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
   [Theory]
   [InlineData(1, "textNewPost")]
-  public void TestUpdatePostSucess(int postId, string newPost)
+  public void TestUpdatePostSucess(int postId, string newPost) /* Failed */
   {
-    Post fakePost = new(newPost, "imageString", "dateString") { PostId = 1, Id = 1 };
+    Post fakePost = new(newPost, "imageString", "dateString") { PostId = postId, Id = 1 };
 
     var mockUpdate = new Mock<ITryitterRepository>();
     mockUpdate
@@ -126,8 +126,27 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
   }
 
   [Theory]
+  [InlineData(1, "textNewPost")]
+  public void TestUpdatePostFail(int postId, string newPost) /* passed */
+  {
+    Post fakePost = new(newPost, "imageString", "dateString") { PostId = postId, Id = 1 };
+
+    var mockUpdate = new Mock<ITryitterRepository>();
+    mockUpdate
+      .Setup(m => m.UpdatePost(It.IsAny<int>(), It.IsAny<Post>()))
+      .Returns(false);
+
+    PostsController _controller = new(mockUpdate.Object);
+    var result = _controller.UpdatePost(1, fakePost);
+    var badRequestResult = result.As<BadRequestResult>();
+
+    badRequestResult.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+    mockUpdate.Verify(m => m.UpdatePost(It.IsAny<int>(), It.IsAny<Post>()), Times.Once);
+  }
+
+  [Theory]
   [InlineData(1)]
-  public async Task TestDeletePostSucess(int postId)
+  public async Task TestDeletePostSucess(int postId) /* passed */
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = postId, Id = 1 };
 
