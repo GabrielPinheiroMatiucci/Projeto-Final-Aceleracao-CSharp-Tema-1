@@ -162,4 +162,23 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
     noContentResult.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
     mockDelete.Verify(m => m.DeletePostAsync(It.IsAny<int>()), Times.Once);
   }
+
+  [Theory]
+  [InlineData(1)]
+  public async Task TestDeletePostFail(int postId) /* passed */
+  {
+    Post fakePost = new("textString", "imageString", "dateString") { PostId = postId, Id = 1 };
+
+    var mockDelete = new Mock<ITryitterRepository>();
+    mockDelete
+      .Setup(m => m.DeletePostAsync(It.IsAny<int>()))
+      .ReturnsAsync(false);
+
+    PostsController _controller = new(mockDelete.Object);
+    var result = await _controller.DeletePostAsync(1);
+    var notFoundResult = result.As<NotFoundResult>();
+
+    notFoundResult.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+    mockDelete.Verify(m => m.DeletePostAsync(It.IsAny<int>()), Times.Once);
+  }
 }
