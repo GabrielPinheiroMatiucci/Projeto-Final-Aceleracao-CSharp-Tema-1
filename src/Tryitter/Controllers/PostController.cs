@@ -69,7 +69,6 @@ public class PostsController : ControllerBase
       return NoContent();
 
     return BadRequest();
-
   }
 
   [HttpGet]
