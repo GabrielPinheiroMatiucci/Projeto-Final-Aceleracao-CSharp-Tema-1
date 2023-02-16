@@ -21,7 +21,7 @@ namespace Tryitter.Models
     public int Id { get; set; }
 
     [Required]
-    [MaxLenth(300, ErrorMessage = "O texto do post só pode conter até 300 caracteres.")]
+    [StringLength(300, ErrorMessage = "O texto do post só pode conter até 300 caracteres.")] /*  */
     public string Text { get; set; } = null!;
 
     public string Date { get; set; } = DateTime.Now.ToString();
