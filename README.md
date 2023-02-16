@@ -36,7 +36,9 @@ O grupo ficou responsável pelo desenvolvimento do Back-End dessa rede social. Q
 <details><summary>Tecnologias utilizadas</summary>
 
 - Tecnologia uzada foi o ASP .NET com C#  
-- Para realização dos testes: as bibliotecas xUnit e FluentAssertions.as bibliotecas xUnit, FluentAssertions
+- Para realização dos testes: as bibliotecas xUnit e FluentAssertions e a xUnit.
+ 
+  ![alt text](https://img.shields.io/badge/Microsoft-666666?style=for-the-badge&logo=microsoft&logoColor=white) ![alt text](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white) ![alt text](https://img.shields.io/badge/Microsoft_SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)![alt text](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 </details>
 
 <details><summary>Testes e Cobertura</summary>
@@ -76,29 +78,29 @@ dotnet restore
 <details>
 <summary><strong>Requisitos sugeridos</strong></summary>
 
-1. [ ] Utilizar C#, SQL Server e Azure;
-2. [ ] Ter rotas autenticadas e rotas anônimas;
-3. [ ] Utilizar os frameworks xUnit e FluentAssertions para criar testes.
+1. [x] Utilizar C# e SQL Server;
+2. [x] Ter rotas autenticadas e rotas anônimas;
+3. [x] Utilizar os frameworks xUnit e FluentAssertions para criar testes.
 </details>
 
 <details>
 <summary><strong>Funcionalidades</strong></summary>
 
-1. [ ] Implementar um C.R.U.D. para as contas de pessoas estudantes;
-2. [ ] Implementar um C.R.U.D. para um post de uma pessoa estudante;
-3. [ ] Alterar um post depois de publicado.
+1. [x] Implementar um C.R.U.D. para as contas de pessoas estudantes;
+2. [x] Implementar um C.R.U.D. para um post de uma pessoa estudante;
+3. [x] Alterar um post depois de publicado.
 </details>
 
 <details>
 <summary><strong>Extra</strong></summary>
 
-4. [ ] Implementar três endpoints referentes à publicação de posts:
-   1. [ ] Inserir um post;
-   2. [ ] Listar todos os seus posts;
-   3. [ ] Listar o último post.
-5. [ ] Implementar dois endpoints referentes à procura de posts em outras contas:
-   1. [ ] Listar todos os posts de uma conta x;
-   2. [ ] Listar o último post de uma conta x.
+4. [x] Implementar três endpoints referentes à publicação de posts:
+   1. [x] Inserir um post;
+   2. [x] Listar todos os seus posts;
+   3. [x] Listar o último post.
+5. [x] Implementar dois endpoints referentes à procura de posts em outras contas:
+   1. [x] Listar todos os posts de uma conta x;
+   2. [x] Listar o último post de uma conta x.
 </details>
 <br>
 
