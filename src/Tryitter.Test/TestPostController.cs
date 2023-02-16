@@ -11,7 +11,7 @@ namespace Tryitter.Test;
 public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 {
   [Fact]
-  public async Task TestGetAsyncAllPosts() /* failed */
+  public async Task TestGetAsyncAllPosts()
   {
     List<Post> fakePosts = new List<Post>()
     {
@@ -30,11 +30,11 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
     var okResult = result.As<OkObjectResult>();
 
     okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
-    mockGet.Verify(m => m.GetStudentsAsync(), Times.Once);
+    mockGet.Verify(m => m.GetAllPostsAsync(It.IsAny<int>()), Times.Once);
   }
 
   [Fact]
-  public async Task TestGetPostByIdAsync() /* failed */
+  public async Task TestGetPostByIdAsync()
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = 1, Id = 1 };
 
@@ -48,29 +48,11 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
     var okResult = result.As<OkObjectResult>();
 
     okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
-    mockGet.Verify(m => m.GetStudentAsync(It.IsAny<int>()), Times.Once);
+    mockGet.Verify(m => m.GetPostByIdAsync(It.IsAny<int>()), Times.Once);
   }
 
-  // [Fact] - tá dando erro de build
-  // public async Task TestGetPostByIdAsync()
-  // {
-  //   Post fakePost = new("textString", "imageString", "dateString") { PostId = 1, Id = 1 };
-
-  //   var mockGet = new Mock<ITryitterRepository>();
-  //   mockGet
-  //     .Setup(m => m.GetPostByIdAsync(It.IsAny<int>()))
-  //     .ReturnsAsync(fakePost);
-
-  //   PostsController _controller = new(mockGet.Object);
-  //   var result = await _controller.GetPostByIdAsync(1);
-  //   var okResult = result.As<OkObjectResult>();
-
-  //   okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
-  //   mockGet.Verify(m => m.GetStudentAsync(It.IsAny<int>()), Times.Once);
-  // }
-
   [Fact]
-  public async Task TestGetLastPostAsync() /* Failed */
+  public async Task TestGetLastPostAsync()
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = 1, Id = 1 };
 
@@ -84,12 +66,12 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
     var okResult = result.As<OkObjectResult>();
 
     okResult.StatusCode.Should().Be((int)HttpStatusCode.OK);
-    mockGet.Verify(m => m.GetStudentAsync(It.IsAny<int>()), Times.Once);
+    mockGet.Verify(m => m.GetLastPostAsync(It.IsAny<int>()), Times.Once);
   }
 
   [Theory]
   [InlineData("textStringInline")]
-  public void TestCreatePostSucess(string post) /* Passed  */
+  public void TestCreatePostSucess(string post)
   {
     Post fakePost = new(post, "imageString", "dateString") { PostId = 1, Id = 1 };
 
@@ -108,7 +90,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
   [Theory]
   [InlineData(1, "textNewPost")]
-  public void TestUpdatePostSucess(int postId, string newPost) /* Failed */
+  public void TestUpdatePostSucess(int postId, string newPost)
   {
     Post fakePost = new(newPost, "imageString", "dateString") { PostId = postId, Id = 1 };
 
@@ -119,15 +101,15 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
     PostsController _controller = new(mockUpdate.Object);
     var result = _controller.UpdatePost(1, fakePost);
-    var createdResult = result.As<CreatedResult>();
+    var createdResult = result.As<NoContentResult>();
 
-    createdResult.StatusCode.Should().Be((int)HttpStatusCode.Created);
+    createdResult.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
     mockUpdate.Verify(m => m.UpdatePost(It.IsAny<int>(), It.IsAny<Post>()), Times.Once);
   }
 
   [Theory]
   [InlineData(1, "textNewPost")]
-  public void TestUpdatePostFail(int postId, string newPost) /* passed */
+  public void TestUpdatePostFail(int postId, string newPost)
   {
     Post fakePost = new(newPost, "imageString", "dateString") { PostId = postId, Id = 1 };
 
@@ -146,7 +128,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
   [Theory]
   [InlineData(1)]
-  public async Task TestDeletePostSucess(int postId) /* passed */
+  public async Task TestDeletePostSucess(int postId)
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = postId, Id = 1 };
 
@@ -165,7 +147,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
 
   [Theory]
   [InlineData(1)]
-  public async Task TestDeletePostFail(int postId) /* passed */
+  public async Task TestDeletePostFail(int postId)
   {
     Post fakePost = new("textString", "imageString", "dateString") { PostId = postId, Id = 1 };
 
