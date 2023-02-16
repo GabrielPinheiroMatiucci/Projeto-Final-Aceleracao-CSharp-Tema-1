@@ -19,7 +19,7 @@ public class TestPostController : IClassFixture<WebApplicationFactory<Program>>
   {
     List<Post> fakePosts = new List<Post>()
     {
-      // new Post("imageString", "textString") { PostId = 1, Id = 1 },
+      new Post("textString", "imageString", "dateString") { PostId = 1, Id = 1 },
     };
   }
 

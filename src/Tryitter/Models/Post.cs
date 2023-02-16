@@ -6,7 +6,7 @@ namespace Tryitter.Models
 
   public class Post
   {
-    public Post(string text, string image, DateTime date)
+    public Post(string text, string image, string date)
     {
       Text = text;
       Imagem = image;
@@ -23,7 +23,7 @@ namespace Tryitter.Models
     [StringLength(300)]
     public string Text { get; set; } = null!;
 
-    public DateTime Date { get; set; }
+    public string Date { get; set; } = DateTime.Now.ToString();
     public string Imagem { get; set; } = null!;
   }
 }
